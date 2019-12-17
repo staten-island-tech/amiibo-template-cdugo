@@ -4,8 +4,8 @@
   "description": "amiibo site for demoing express",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js -e js,hbs",
+    "start": "node public/index.js",
+    "dev": "nodemon public/index.js -e js,hbs",
     "build": "webpack --config webpack.config.js",
     "heroku-prebuild": "npm install --dev"
   },
@@ -24,7 +24,9 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "hbs": "^4.0.6",
+    "path": "^0.12.7",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }
