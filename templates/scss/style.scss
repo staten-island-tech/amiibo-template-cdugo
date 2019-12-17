@@ -1,0 +1,267 @@
+html {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 55%;
+  }
+}
+body {
+  font-family: snes;
+  letter-spacing: 1rem;
+  font-weight: 700;
+}
+$colors: (
+  primary-color-dark: #d32f2f,
+  primary-color: #000000,
+  primary-color-text: #ffffff,
+  test: #e60012,
+  mario-green: #44b03a,
+  mario-blue: #029ede,
+  mario-red: #e8270e,
+  mario-yellow: #ffd003
+);
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+@font-face {
+  font-family: snes;
+  src: url("fonts/snes_italic-webfont.woff2");
+  src: url("fonts/snes_italic-webfont.woff");
+}
+@font-face {
+  font-family: "mario-font";
+  src: url("fonts/supermario256-webfont.woff");
+  src: url("fonts/supermario256-webfont.woff2");
+}
+@font-face {
+  font-family: "zelda-font";
+  src: url("fonts/zelda.woff");
+  src: url("fonts/zelda.woff2");
+}
+@font-face {
+  font-family: "pokemon-font";
+  src: url("fonts/pkmn.woff");
+  src: url("fonts/pkmn.woff2");
+}
+@font-face {
+  font-family: "fire-emblem-font";
+  src: url("fonts/fire.woff");
+}
+.fire {
+  font-family: "fire-emblem-font";
+  font-size: 3rem;
+}
+.pokemon {
+  font-family: "pokemon-font";
+  letter-spacing: 0.6rem;
+  color: #faed26;
+  .pkmn-color {
+    color: #faed26;
+  }
+}
+.mario {
+  font-family: "mario-font";
+  letter-spacing: 0.4rem;
+}
+.mario-color-blue {
+  color: color(mario-blue);
+}
+.mario-color-red {
+  color: color(mario-red);
+}
+.mario-color-yellow {
+  color: color(mario-yellow);
+}
+.mario-color-green {
+  color: color(mario-green);
+}
+.zelda {
+  font-family: "zelda-font";
+  letter-spacing: 0.5rem;
+}
+$padding: 15px;
+
+body {
+  background-color: color(primary-color);
+  min-height: 100vh;
+  color: color(primary-color-text);
+}
+header {
+  margin: 5rem auto;
+  text-align: center;
+  font-size: 2rem;
+  list-style: none;
+  text-decoration: none;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+}
+.home-link,
+:visited,
+:link {
+  margin: 1rem auto;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: color(primary-color-text);
+}
+.header-title {
+  font-size: 8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80vw;
+  margin: 1rem auto;
+  .header-nav-link,
+  :visited,
+  :link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: color(primary-color-text);
+    transition: 0.3s;
+  }
+  .header-nav-link:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.4);
+  }
+}
+@media screen and (max-width: 900px) {
+  .header-nav {
+    flex-direction: column;
+    height: 30vh;
+  }
+}
+.header-nav-link:hover .header-nav-link:not(:hover) {
+  transform: scale(0.9);
+  opacity: 0.3;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .search-title {
+    font-size: 4rem;
+  }
+  .amiibo-form {
+    text-align: center;
+  }
+  #amiibo-name {
+    text-align: center;
+    height: 6rem;
+    width: 30rem;
+  }
+}
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.3rem;
+  width: 70vw;
+  letter-spacing: 1.2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  .display-amiibo {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 10vw;
+    list-style: none;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .display-amiibo:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.4);
+  }
+  .display-name,
+  .display-series,
+  .display-image {
+    padding: 1rem;
+  }
+
+  .display-image {
+    height: 15vh;
+  }
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  margin: 1rem;
+  font-size: 2.3rem;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  font-family: snes;
+  letter-spacing: 1rem;
+}
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn-white {
+  background-color: #fff;
+  color: color(test);
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+.btn-white:after {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.4);
+}
+.btn-white:hover {
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.4);
+}
+
+.btn:hover::after {
+  transform: scaleX(1.5) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-red {
+  background-color: color(test);
+}
+.btn-red:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.4);
+}
+.btn-red:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(255, 0, 0, 0.4);
+}
