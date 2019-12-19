@@ -14,6 +14,18 @@ const viewsPath = path.join(__dirname, '../templates/views');
 app.set('view engine', 'hbs'); //telling express/node to use handlebars for templates
 app.set('views', viewsPath)//telling express to get templates from templates/views
 hbs.registerPartials(partialsPath);
+//setup our static asset directory (CSS)
+app.use(express.static(publicDirectoryPath));
+app.get("", async(req, res) => {
+
+  try{
+    res.render('index', {
+      title: 'our first express app'
+    });
+  } catch (error) {
+    res.status(500).send();
+  }
+});
 app.get("/about/:id", async(req, res) => {
   const name = req.params.id;
   try{
